@@ -1,0 +1,38 @@
+@import '../app.component.css';
+
+
+.ledger_entry{
+  text-align: center;
+}
+
+/*td{*/
+  /*width: 25%;*/
+
+/*}*/
+
+.ledger_and_browser{
+
+}
+
+.ledger {
+  border: 2px solid white;
+  text-align: center;
+  width: 60%;
+  display: inline-block;
+}
+
+.selected_transaction{
+  border: 2px solid red;
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+button{
+  width: auto;
+}
+
+.ledger_table{
+  margin: auto;
+  width: 70%;
+}

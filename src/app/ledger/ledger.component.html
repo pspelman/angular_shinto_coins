@@ -1,0 +1,29 @@
+<h1>Shinto Ledger</h1>
+
+
+<div class="ledger_and_browser">
+  <div class="ledger">
+    <table class="ledger_table">
+      <thead>
+      <th>Number</th>
+      <th>Action</th>
+      <th>Coins</th>
+      <th>Value</th>
+      <th>View</th>
+      </thead>
+      <tr class='ledger_entry' *ngFor="let transaction of ledger">
+        <td>{{ ledger_dict[transaction.id].transaction_number }}</td>
+        <td>{{ transaction.transaction_type }}</td>
+        <td>{{ transaction.coins }}</td>
+        <td>{{ transaction.dollar_val }}</td>
+        <td><button >Details</button></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="selected_transaction">
+    <!--{{current_ledger}}-->
+    Single entry details will be presented here
+  </div>
+</div>
+

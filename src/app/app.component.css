@@ -1,0 +1,72 @@
+
+.full_page{
+  background-color: rgba(221, 203, 93, 0.58);
+  /*height:900px;*/
+  height: 100vh;
+  width:100%;
+
+}
+
+
+.container {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 90%;
+  margin: auto;
+  min-height: 400px;
+  font-size: 14pt;
+
+}
+
+.component{
+  margin: 2%;
+}
+
+.ang_logo{
+  width: 10%;
+}
+
+.shinto_logo{
+  width: 11%;
+  z-index: 1;
+  position: absolute;
+  /*top: 4.8em;*/
+  top: 5%;
+  border: .5px solid dodgerblue;
+  border-radius: 60px ;
+
+}
+
+.wat_logo{
+  width: 9.5%;
+  z-index: 1;
+  position: absolute;
+  /*top: 4em;*/
+  top: 4%;
+  right: 4em;
+  border: .5px solid dodgerblue;
+  border-radius: 80px ;
+  background-color: transparent;
+
+}
+
+.navbar{
+  border: 3px solid dodgerblue;
+  border-radius: 10px;
+}
+
+button{
+  background-color: dodgerblue;
+  color: #ddcb5d;
+  /*outline-color: greenyellow;*/
+  text-shadow: 2px 2px #000;
+  font-size: 18px;
+  width: 15%;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+button:hover{
+  background-color: #6aff00;
+}
