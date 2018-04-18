@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   subscription: Subscription;
   myCoins: number = this._coinExchangeService.getCoins();
 
+
   constructor(private _coinExchangeService: CoinExchangeService) {  }
 
 
@@ -69,7 +70,18 @@ export class AppComponent implements OnInit {
 
     this._coinExchangeService.mineOneCoin(1);
     this._coinExchangeService.mineOneCoin(1);
+    this._coinExchangeService.buyCoins(1);
     this._coinExchangeService.mineOneCoin(1);
+    this._coinExchangeService.mineOneCoin(1);
+    this._coinExchangeService.sellCoins(1);
+    this._coinExchangeService.mineOneCoin(1);
+    this._coinExchangeService.mineOneCoin(1);
+    this._coinExchangeService.buyCoins(1);
+    this._coinExchangeService.buyCoins(1);
+    this._coinExchangeService.mineOneCoin(1);
+    this._coinExchangeService.sellCoins(1);
+    this._coinExchangeService.sellCoins(1);
+
 
     //go to service and get the history of stuff
     this.title = 'ShintoBinto';

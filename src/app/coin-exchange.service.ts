@@ -11,12 +11,12 @@ export class Transaction {
   timestamp: any;
   id: any;
   user: any;
-  coins: Number;
-  dollar_val: Number;
+  coins: number;
+  dollar_val: number;
   timestamp_string: any;
   transaction_type: any;
 
-  constructor(coins:Number, transaction_type:any, exchangeRate:Number){
+  constructor(coins:number, transaction_type:any, exchangeRate:number){
     this.user="Shinja";
     this.id = Math.random();
     this.timestamp = new Date();
@@ -37,7 +37,12 @@ export class Transaction {
 export class CoinExchangeService {
   constructor(private _http: HttpClient) {}
   coinsChanged = new Subject<number>();
+  exchangeRateChanged = new Subject<number>();
+  // exchangeRate = new Subject<number>();
+
   myCoins: number = 0;
+  currentExchangeRate: number = 1;
+
   // transactions: Array<Transaction>;
   ledger: Array<Transaction> = [];
   ledger_dict: Object = {};
@@ -46,8 +51,7 @@ export class CoinExchangeService {
   one_transaction = new Transaction(1, 'sample', this.getExchangeRate());
 
 
-  private currentExchangeRate: any = 1;
-  private getExchangeRate(): number{
+  private getExchangeRate(){
     return this.currentExchangeRate;
   }
 
@@ -65,6 +69,7 @@ export class CoinExchangeService {
     console.log(`new ledger:`,this.ledger);
   }
 
+
   //This will update the Observable object myCoins to show the users' current coins
   addCoin(coins: number) {
     //modify the current user's coins by the number they just got
@@ -72,11 +77,17 @@ export class CoinExchangeService {
     this.coinsChanged.next(this.myCoins);
   }
 
+  //This will update the Observable object currentExchangeRate to show the current value of a coin
+  modifyExchangeRate(rateChange: number) {
+    this.currentExchangeRate += rateChange;
+    this.exchangeRateChanged.next(this.currentExchangeRate);
+  }
+
   mineOneCoin(coins_to_add: number = 1): void{
     console.log(`mining a coin`,);
     this.addCoin(coins_to_add);
     this.addTransactionToLedger(coins_to_add, 'mined');
-    this.currentExchangeRate += 1;
+    this.modifyExchangeRate(1);
   }
 
 
@@ -87,14 +98,13 @@ export class CoinExchangeService {
 
 
   buyCoins(coins: number){
-    //TODO: amount purchase
     this.addCoin(coins);
-    this.currentExchangeRate += 1;
+    this.modifyExchangeRate( 1);
     this.addTransactionToLedger(coins, 'buy');
   }
 
   sellCoins(coins_to_sell: number = 1) {
-    //fixme: prevent selling if user has zero coins
+
     if (this.myCoins < 1){
       alert("You don't have enough to make a sale");
       return;
@@ -104,10 +114,7 @@ export class CoinExchangeService {
     //subtract number of coins sold from the user's coins
     this.addCoin(-coins_to_sell);
     this.addTransactionToLedger(-coins_to_sell, 'sold');
-    this.currentExchangeRate -= 1;
-    //TODO: update myCoins - make sure the observable is noticed
-    //TODO: record on the ledger NUMBER, TYPE = "sale"
-
+    this.modifyExchangeRate(-1);
   }
 
   getCurrentCoinCount() {
@@ -117,7 +124,7 @@ export class CoinExchangeService {
     return this.user_coins;
   }
 
-  getCoinsForUser(user: String, total: Number = 0) {
+  getCoinsForUser(user: String, total: number = 0) {
     //TODO: Make recursive function to go through all transactions
 
   }

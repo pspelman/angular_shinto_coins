@@ -10,8 +10,9 @@
 
 /*}*/
 
-.ledger_and_browser{
-
+.ledger_and_browser {
+  max-height: 100%;
+  overflow: auto;
 }
 
 .ledger {
@@ -19,6 +20,10 @@
   text-align: center;
   width: 60%;
   display: inline-block;
+  height: 40vh;
+  max-height: 50%;
+  overflow: auto;
+
 }
 
 .selected_transaction{

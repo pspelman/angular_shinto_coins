@@ -1,3 +1,4 @@
+
 <h1>Shinto Ledger</h1>
 
 
@@ -16,14 +17,14 @@
         <td>{{ transaction.transaction_type }}</td>
         <td>{{ transaction.coins }}</td>
         <td>{{ transaction.dollar_val }}</td>
-        <td><button >Details</button></td>
+        <td><button (click)="getDetails(transaction.id)">Details</button></td>
       </tr>
     </table>
   </div>
 
   <div class="selected_transaction">
-    <!--{{current_ledger}}-->
     Single entry details will be presented here
+    {{selected_transaction.details.transaction_type}}
   </div>
 </div>
 

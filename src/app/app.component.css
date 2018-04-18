@@ -1,4 +1,6 @@
-
+/*html{*/
+  /*height: 100vh;*/
+/*}*/
 .full_page{
   background-color: rgba(221, 203, 93, 0.58);
   /*height:900px;*/
@@ -14,13 +16,16 @@
   border-radius: 10px;
   width: 90%;
   margin: auto;
-  min-height: 400px;
+  /*min-height: 400px;*/
   font-size: 14pt;
+  max-height: 100%;
+  display: block;
 
 }
 
 .component{
   margin: 2%;
+  max-height: 50%;
 }
 
 .ang_logo{

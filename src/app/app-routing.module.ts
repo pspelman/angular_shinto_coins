@@ -18,6 +18,7 @@ const routes: Routes = [
   {path: 'buy', component: BuyComponent},
   {path: 'sell', component: SellComponent},
   {path: 'ledger', component: LedgerComponent},
+  {path: 'ledger/:id', component: LedgerComponent},
   // {path: '/ledger', pathMatch: 'full', redirectTo:'ledger'},
   {path: '', pathMatch: 'full', redirectTo: '/home'},
   // {path: '/home', pathMatch: 'full', redirectTo: '/home'},
