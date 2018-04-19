@@ -23,8 +23,14 @@
   </div>
 
   <div class="selected_transaction">
-    Single entry details will be presented here
-    {{selected_transaction.details.transaction_type}}
+    Single entry details will be presented here<br/>
+    <span *ngIf="selected_transaction">
+  ID: {{selected_transaction.details.id}}<br/>
+  Block #: {{ledger_dict[selected_transaction.details.id].transaction_number}}<br/>
+  Type: {{selected_transaction.details.transaction_type}}<br/>
+  Coins: {{selected_transaction.details.coins }}<br/>
+  Dollar value: {{selected_transaction.details.dollar_val | currency }}<br/>
+    </span>
   </div>
 </div>
 

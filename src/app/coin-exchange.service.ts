@@ -60,7 +60,7 @@ export class CoinExchangeService {
     let tempTransaction = new Transaction(number_of_coins, transaction_type, this.getExchangeRate());
     console.log(`New transaction for ledger:`,tempTransaction);
     this.ledger.push(tempTransaction);
-    let transaction_number = this.ledger.length-1;
+    let transaction_number = this.ledger.length;
     let tempID = tempTransaction.id;
     this.ledger_dict[tempID] = {
       'transaction_number': transaction_number,
